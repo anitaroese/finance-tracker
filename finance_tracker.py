@@ -6,40 +6,54 @@ def get_number(prompt):
         except ValueError:
             print("Invalid number. Please enter a valid amount.")
 
-def main():
-    print("=== Finance Tracker ===")
-
-    # 1) Ask for income 
-    income = get_number("Enter your total income for the month: $")
-
-    # 2) Ask for multiple expenses
-    expenses = {}
-
-    while True:
+def get_expense():
+    while True: 
         name = input("Enter expense name (or 'done' to finish): ").strip().lower()
 
         if name == "done":
-            break
-
+            return None
+        
         if name == "":
             print("Expense name cannot be empty.")
             continue
-        
-        while True:
+
+        while True: 
             amount = get_number(f"Enter amount for {name}: $")
-            
-            if amount <= 0: 
+
+            if amount <= 0:
                 print("Amount must be greater than 0.")
                 continue
 
             break
 
+        return name, amount
+
+
+def main():
+    print("=== Finance Tracker ===")
+
+    # Ask for income 
+    income = get_number("Enter your total income for the month: $")
+
+    # Collect expenses
+    expenses = {}
+
+    while True:
+        expense = get_expense()
+
+        if expense is None:
+            break
+
+        name, amount = expense
+
+        # Add expenses to dictionary
         if name in expenses:
+            # combine expenses with the same category
             expenses[name] += amount
         else:
             expenses[name] = amount
     
-    # 3) Calculate balance (surplus/deficit)
+    # Calculate total
     total_expenses = sum(expenses.values())
     balance = income - total_expenses
 
@@ -47,6 +61,7 @@ def main():
     for name, amount in expenses.items():
         print(f"{name.title()}: ${amount:.2f}")
 
+    # Print summary
     print("\n--- Summary ---")
     print(f"Income: ${income:.2f}")
     print(f"Total expenses: ${total_expenses:.2f}")
