@@ -13,25 +13,39 @@ def main():
     income = get_number("Enter your total income for the month: $")
 
     # 2) Ask for multiple expenses
-    expenses = []
+    expenses = {}
 
     while True:
-        name = input("Enter expense name (or 'done' to finish): ")
+        name = input("Enter expense name (or 'done' to finish): ").strip().lower()
 
-        if name.lower() == "done":
+        if name == "done":
             break
 
-        amount = get_number(f"Enter amount for {name}: $")
+        if name == "":
+            print("Expense name cannot be empty.")
+            continue
+        
+        while True:
+            amount = get_number(f"Enter amount for {name}: $")
+            
+            if amount <= 0: 
+                print("Amount must be greater than 0.")
+                continue
 
-        expenses.append((name, amount))
+            break
+
+        if name in expenses:
+            expenses[name] += amount
+        else:
+            expenses[name] = amount
     
     # 3) Calculate balance (surplus/deficit)
-    total_expenses = sum(amount for name, amount in expenses)
+    total_expenses = sum(expenses.values())
     balance = income - total_expenses
 
     print("\nExpenses:")
-    for name, amount in expenses:
-        print(f"{name}: ${amount:.2f}")
+    for name, amount in expenses.items():
+        print(f"{name.title()}: ${amount:.2f}")
 
     print("\n--- Summary ---")
     print(f"Income: ${income:.2f}")
