@@ -16,16 +16,22 @@ def main():
     expenses = []
 
     while True:
-        expense = get_number("Enter an expense amount (0 to finish): $")
+        name = input("Enter expense name (or 'done' to finish): ")
 
-        if expense == 0:
+        if name.lower() == "done":
             break
 
-        expenses.append(expense)
+        amount = get_number(f"Enter amount for {name}: $")
+
+        expenses.append((name, amount))
     
     # 3) Calculate balance (surplus/deficit)
-    total_expenses = sum(expenses)
+    total_expenses = sum(amount for name, amount in expenses)
     balance = income - total_expenses
+
+    print("\nExpenses:")
+    for name, amount in expenses:
+        print(f"{name}: ${amount:.2f}")
 
     print("\n--- Summary ---")
     print(f"Income: ${income:.2f}")
