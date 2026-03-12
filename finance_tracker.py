@@ -1,3 +1,23 @@
+import json
+import os
+
+def load_data():
+    if os.path.exists("finance_data.json"):
+        with open("finance_data.json", "r") as file:
+            data = json.load(file)
+            return data["income"], data["expenses"]
+    else:
+        return 0, {}
+    
+def save_data(income, expenses):
+    data = {
+        "income": income,
+        "expenses": expenses
+    }
+
+    with open("finance_data.json", "w") as file:
+        json.dump(data, file, indent=4)
+
 def get_number(prompt):
     while True:
         value = input(prompt)
@@ -36,7 +56,7 @@ def main():
     income = get_number("Enter your total income for the month: $")
 
     # Collect expenses
-    expenses = {}
+    saved_income, expenses = load_data()
 
     while True:
         expense = get_expense()
@@ -46,9 +66,8 @@ def main():
 
         name, amount = expense
 
-        # Add expenses to dictionary
         if name in expenses:
-            # combine expenses with the same category
+            # Combine expenses with the same category
             expenses[name] += amount
         else:
             expenses[name] = amount
@@ -72,5 +91,8 @@ def main():
         print(f"Deficit: ${abs(balance):.2f}  ❌")
     else:
         print("Break-even: $0.00")
+
+    save_data(income, expenses)
+    print("\nData saved to finance_data.json")
     
 main()
