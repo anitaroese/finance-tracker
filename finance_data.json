@@ -3,6 +3,7 @@
     "expenses": {
         "groceries": 100.0,
         "signatures": 45.0,
-        "eating out": 60.0
+        "eating out": 60.0,
+        "clothing": 30.0
     }
 }

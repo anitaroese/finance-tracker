@@ -48,51 +48,72 @@ def get_expense():
 
         return name, amount
 
-
-def main():
-    print("=== Finance Tracker ===")
-
-    # Ask for income 
-    income = get_number("Enter your total income for the month: $")
-
-    # Collect expenses
-    saved_income, expenses = load_data()
-
-    while True:
-        expense = get_expense()
-
-        if expense is None:
-            break
-
-        name, amount = expense
-
-        if name in expenses:
-            # Combine expenses with the same category
-            expenses[name] += amount
-        else:
-            expenses[name] = amount
-    
-    # Calculate total
+def show_summary(income, expenses):
     total_expenses = sum(expenses.values())
     balance = income - total_expenses
 
     print("\nExpenses:")
-    for name, amount in expenses.items():
-        print(f"{name.title()}: ${amount:.2f}")
+    if expenses:
+        for name, amount in expenses.items():
+            print(f"{name.title()}: ${amount:.2f}")
+    else:
+        print("No expenses recorded.")
 
-    # Print summary
-    print("\n--- Summary ---")
+    print("\n---Summary---")
     print(f"Income: ${income:.2f}")
     print(f"Total expenses: ${total_expenses:.2f}")
 
-    if balance > 0:
+    if balance > 0: 
         print(f"Surplus: ${balance:.2f} ✅")
     elif balance < 0:
-        print(f"Deficit: ${abs(balance):.2f}  ❌")
+        print(f"Deficit: ${balance:.2f} ❌")
     else:
         print("Break-even: $0.00")
 
-    save_data(income, expenses)
-    print("\nData saved to finance_data.json")
+
+
+def main():
+    income, expenses = load_data()
+
+    while True:
+        print("\n=== Finance Tracker ===")
+        print("1. View current data")
+        print("2. Update income")
+        print("3. Add expense")
+        print("4. Save data")
+        print("5. Exit")
+
+        choice = input("Choose an option: ").strip()
+
+        if choice == "1":
+            show_summary(income, expenses)
+
+        elif choice == "2":
+            income = get_number("Enter your total income for the month: $")
+
+        elif choice == "3":
+            expense = get_expense()
+
+            if expense is not None:
+                name, amount = expense
+
+                if name in expenses:
+                    expenses[name] += amount
+                else:
+                    expenses[name] = amount
+        
+        elif choice == "4":
+            save_data(income, expenses)
+            print("Data saved to finance_data.json")
+        
+        elif choice == "5": 
+            save_data(income, expenses)
+            print("Data saved. Goodbye!")
+            break
+
+        else:
+            print("Invalid option. Please choose 1, 2, 3, 4, or 5.")
+    print("=== Finance Tracker ===")
+
     
 main()
