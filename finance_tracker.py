@@ -1,4 +1,5 @@
 import json
+import csv
 
 def load_data():
     try:
@@ -16,6 +17,17 @@ def save_data(income, expenses):
 
     with open("finance_data.json", "w") as file:
         json.dump(data, file, indent=4)
+
+def export_to_csv(income, expenses):
+    with open("finance_data.csv", "w", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=["type", "name", "amount"])
+        writer.writeheader()
+        writer.writerow({"type":"income", "name":"monthly income", "amount":income})
+        for name, amount in expenses.items():
+            writer.writerow({"type":"expenses", "name":name, "amount":amount})
+        writer.writerow({"type":"summary", "name":"total expenses", "amount":sum(expenses.values())})
+        writer.writerow({"type":"summary", "name":"balance", "amount": income - sum(expenses.values())})
+
 
 def get_number(prompt):
     while True:
@@ -77,7 +89,8 @@ def main():
         print("2. Update income")
         print("3. Add expense")
         print("4. Save data")
-        print("5. Exit")
+        print("5. Export to csv")
+        print("6. Exit")
 
         choice = input("Choose an option: ").strip()
 
@@ -99,14 +112,20 @@ def main():
             save_data(income, expenses)
             print("Data saved to finance_data.json")
         
-        elif choice == "5": 
+        elif choice == "5":
+            save_data(income, expenses)
+            export_to_csv(income, expenses)
+            print("Data exported to finance_data.csv")
+        
+        elif choice == "6": 
             save_data(income, expenses)
             print("Data saved. Goodbye!")
             break
 
         else:
-            print("Invalid option. Please choose 1, 2, 3, 4, or 5.")
+            print("Invalid option. Please choose 1, 2, 3, 4, 5, or 6.")
     print("=== Finance Tracker ===")
 
     
-main()
+if __name__ == "__main__":
+    main()
