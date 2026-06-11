@@ -4,6 +4,9 @@
         "groceries": 100.0,
         "signatures": 45.0,
         "eating out": 60.0,
-        "clothing": 30.0
+        "clothing": 30.0,
+        "gym": 120.0,
+        "3": 5.0,
+        "food": 20.0
     }
 }

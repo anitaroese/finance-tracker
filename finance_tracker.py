@@ -27,10 +27,7 @@ def get_number(prompt):
 
 def get_expense():
     while True: 
-        name = input("Enter expense name (or 'done' to finish): ").strip().lower()
-
-        if name == "done":
-            return None
+        name = input("Enter expense name: ").strip().lower()
         
         if name == "":
             print("Expense name cannot be empty.")
@@ -91,15 +88,12 @@ def main():
             income = get_number("Enter your total income for the month: $")
 
         elif choice == "3":
-            expense = get_expense()
+            name, amount = get_expense()
 
-            if expense is not None:
-                name, amount = expense
-
-                if name in expenses:
-                    expenses[name] += amount
-                else:
-                    expenses[name] = amount
+            if name in expenses:
+                expenses[name] += amount
+            else:
+                expenses[name] = amount
         
         elif choice == "4":
             save_data(income, expenses)
