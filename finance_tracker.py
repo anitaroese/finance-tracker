@@ -1,12 +1,11 @@
 import json
-import os
 
 def load_data():
-    if os.path.exists("finance_data.json"):
+    try:
         with open("finance_data.json", "r") as file:
             data = json.load(file)
             return data["income"], data["expenses"]
-    else:
+    except FileNotFoundError:
         return 0, {}
     
 def save_data(income, expenses):
