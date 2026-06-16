@@ -1,13 +1,20 @@
-{
-    "income": 311.0,
-    "expenses": {
-        "groceries": 100.0,
-        "signatures": 45.0,
-        "eating out": 60.0,
-        "clothing": 30.0,
-        "gym": 120.0,
-        "3": 5.0,
-        "food": 20.0,
-        "pets": 50.0
+[
+    {
+        "type": "income",
+        "name": "child support",
+        "amount": 310.0,
+        "date": "2026-06-09"
+    },
+    {
+        "type": "expense",
+        "name": "phone plan",
+        "amount": 20.0,
+        "date": "2026-06-12"
+    },
+    {
+        "type": "expense",
+        "name": "claude subscription",
+        "amount": 20.0,
+        "date": "2026-06-16"
     }
-}
+]

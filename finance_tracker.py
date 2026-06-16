@@ -1,35 +1,31 @@
 import json
 import csv
+from datetime import datetime
 
 def load_data():
+    """Return the data that already existed inside the finance_data.json file"""
     try:
         with open("finance_data.json", "r") as file:
             data = json.load(file)
-            return data["income"], data["expenses"]
+            return data
     except FileNotFoundError:
-        return 0, {}
+        return []
     
-def save_data(income, expenses):
-    data = {
-        "income": income,
-        "expenses": expenses
-    }
-
+def save_data(transactions):
+    """Save data into the finance_data.json file"""
     with open("finance_data.json", "w") as file:
-        json.dump(data, file, indent=4)
+        json.dump(transactions, file, indent=4)
 
-def export_to_csv(income, expenses):
+def export_to_csv(transactions):
+    """Export existed data into finance_data.csv file"""
     with open("finance_data.csv", "w", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=["type", "name", "amount"])
+        writer = csv.DictWriter(file, fieldnames=["type", "name", "amount", "date"])
         writer.writeheader()
-        writer.writerow({"type":"income", "name":"monthly income", "amount":income})
-        for name, amount in expenses.items():
-            writer.writerow({"type":"expenses", "name":name, "amount":amount})
-        writer.writerow({"type":"summary", "name":"total expenses", "amount":sum(expenses.values())})
-        writer.writerow({"type":"summary", "name":"balance", "amount": income - sum(expenses.values())})
-
+        for transaction in transactions:
+            writer.writerow(transaction)
 
 def get_number(prompt):
+    """Prompt the user for a number, looping until valif float is entered"""
     while True:
         value = input(prompt)
         try:
@@ -37,12 +33,13 @@ def get_number(prompt):
         except ValueError:
             print("Invalid number. Please enter a valid amount.")
 
-def get_expense():
+def get_transaction(transaction_type):
+    """Prompt the user for a transaction, storing the name, amount, type and date"""
     while True: 
-        name = input("Enter expense name: ").strip().lower()
+        name = input("Enter transaction name: ").strip().lower()
         
         if name == "":
-            print("Expense name cannot be empty.")
+            print("Transaction name cannot be empty.")
             continue
 
         while True: 
@@ -54,21 +51,53 @@ def get_expense():
 
             break
 
-        return name, amount
+        while True:
+            choice = input("Date (press Enter for today, or type in YYYY-MM-DD format):")
+            if choice == "":
+                date = datetime.now().strftime("%Y-%m-%d")
+                break
+            else:
+                try:
+                    datetime.strptime(choice.strip(), "%Y-%m-%d") # check if user's input is valid by trying to convert it to datetime format
+                    date = choice
+                    break
+                except ValueError:
+                    print("Invalid format")
 
-def show_summary(income, expenses):
-    total_expenses = sum(expenses.values())
-    balance = income - total_expenses
+        
+        transaction = {"type":transaction_type, "name":name, "amount":amount, "date":date}
 
-    print("\nExpenses:")
-    if expenses:
-        for name, amount in expenses.items():
-            print(f"{name.title()}: ${amount:.2f}")
-    else:
-        print("No expenses recorded.")
+        return transaction
+
+def show_summary(transactions):
+    """Show summary of transactions including total expenses, total incomes, and balance"""
+    total_expenses = 0
+    total_income = 0
+    expenses = []
+    incomes = []
+
+    for transaction in transactions:
+        if transaction["type"] == "expense":
+            total_expenses += transaction["amount"]
+            expenses.append(f"\n{transaction['name']}: ${transaction['amount']:.2f}")
+        else:
+            total_income += transaction["amount"]
+            incomes.append(f"\n{transaction['name']}: ${transaction['amount']:.2f}")
+
+    balance = total_income - total_expenses
+
+    print("Expenses:")
+    for expense in expenses:
+        print(expense)
+
+
+    print("Incomes:")
+    for income in incomes:
+        print(income)
+
 
     print("\n---Summary---")
-    print(f"Income: ${income:.2f}")
+    print(f"Total incomes: ${total_income:.2f}")
     print(f"Total expenses: ${total_expenses:.2f}")
 
     if balance > 0: 
@@ -81,12 +110,12 @@ def show_summary(income, expenses):
 
 
 def main():
-    income, expenses = load_data()
+    transactions = load_data()
 
     while True:
         print("\n=== Finance Tracker ===")
         print("1. View current data")
-        print("2. Update income")
+        print("2. Add income")
         print("3. Add expense")
         print("4. Save data")
         print("5. Export to csv")
@@ -95,30 +124,26 @@ def main():
         choice = input("Choose an option: ").strip()
 
         if choice == "1":
-            show_summary(income, expenses)
+            show_summary(transactions)
 
+        # transaction_type is inferred from menu choice, no need to ask the user explicitly
         elif choice == "2":
-            income = get_number("Enter your total income for the month: $")
+            transactions.append(get_transaction("income"))
 
         elif choice == "3":
-            name, amount = get_expense()
+            transactions.append(get_transaction("expense"))
 
-            if name in expenses:
-                expenses[name] += amount
-            else:
-                expenses[name] = amount
-        
         elif choice == "4":
-            save_data(income, expenses)
+            save_data(transactions)
             print("Data saved to finance_data.json")
         
         elif choice == "5":
-            save_data(income, expenses)
-            export_to_csv(income, expenses)
+            save_data(transactions)
+            export_to_csv(transactions)
             print("Data exported to finance_data.csv")
         
         elif choice == "6": 
-            save_data(income, expenses)
+            save_data(transactions)
             print("Data saved. Goodbye!")
             break
 
