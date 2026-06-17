@@ -1,29 +1,36 @@
 # Finance Tracker
 
-This is a beginner Python project to track income and expenses.
+A command-line personal finance tracker built in Python. 
+Logs income and expenses with timestamps and categories, 
+stores data in JSON, and exports to CSV for analysis.
 
 ## Features
 
-- Enter monthly income
-- Add multiple expenses
-- Calculate total expenses
-- Display surplus or deficit
+- Add income and expense transactions with date and category
+- Persistent storage using JSON
+- Export transaction history to CSV
+- Summary view with total income, total expenses, and balance
+- 7 expense categories: groceries, dining out, subscriptions, 
+  entertainment, clothing, gifts, services
 
 ## Technologies
 
-- Python
-
-## Purpose
-
-I built this project while learning Python to practice:
-- user input
-- loops
-- functions
-- lists
-- basic financial calculations
+- Python 3
+- Libraries: `json`, `csv`, `datetime`
 
 ## How to Run
 
-Run the program with:
-
+```bash
 python finance_tracker.py
+```
+
+## Roadmap
+
+- [ ] Analysis layer using pandas and matplotlib
+- [ ] Interactive dashboard with Streamlit
+- [ ] Multi-currency support (USD/BRL)
+
+## Purpose
+
+Built as a portfolio project while learning Python, with a focus 
+on financial data — an area I'm pursuing professionally.
