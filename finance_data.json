@@ -1,20 +1,16 @@
 [
     {
+        "type": "expense",
+        "category": "Subscriptions",
+        "name": "visible",
+        "amount": 25.0,
+        "date": "2026-03-09"
+    },
+    {
         "type": "income",
+        "category": "",
         "name": "child support",
-        "amount": 310.0,
-        "date": "2026-06-09"
-    },
-    {
-        "type": "expense",
-        "name": "phone plan",
-        "amount": 20.0,
-        "date": "2026-06-12"
-    },
-    {
-        "type": "expense",
-        "name": "claude subscription",
-        "amount": 20.0,
-        "date": "2026-06-16"
+        "amount": 306.22,
+        "date": "2026-03-12"
     }
 ]

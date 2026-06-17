@@ -1,4 +1,3 @@
-type,name,amount,date
-income,child support,310.0,2026-06-09
-expense,phone plan,20.0,2026-06-12
-expense,claude subscription,20.0,2026-06-16
+type,name,amount,date,category
+expense,visible,25.0,2026-03-09,Subscriptions
+income,child support,306.22,2026-03-12,
