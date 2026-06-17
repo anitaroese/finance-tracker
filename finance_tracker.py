@@ -37,7 +37,7 @@ def get_transaction(transaction_type):
     """Prompt the user for a transaction, storing the name, amount, type and date"""
     if transaction_type == "expense":
         while True:
-            category = input("\nCategories: \n1. Groceries \n2. Dining out \n3. Subscriptions \n4. Entertainment \n5. Clothing \n6. Gifts \n7. Other \nChoose an option: ")
+            category = input("\nCategories: \n1. Groceries \n2. Dining out \n3. Subscriptions \n4. Entertainment \n5. Clothing \n6. Gifts \n7. Services \n8. Other \nChoose an option: ")
 
             if category == "1":
                 transaction_category = "groceries"
@@ -58,6 +58,9 @@ def get_transaction(transaction_type):
                 transaction_category = "gifts"
                 break
             elif category == "7":
+                transaction_category = "services"
+                break
+            elif category == "8":
                 transaction_category = "other"
                 break
             else:
@@ -111,19 +114,19 @@ def show_summary(transactions):
     for transaction in transactions:
         if transaction["type"] == "expense":
             total_expenses += transaction["amount"]
-            expenses.append(f"\n{transaction['name']}: ${transaction['amount']:.2f}")
+            expenses.append(f"{transaction['name']}: ${transaction['amount']:.2f}")
         else:
             total_income += transaction["amount"]
-            incomes.append(f"\n{transaction['name']}: ${transaction['amount']:.2f}")
+            incomes.append(f"{transaction['name']}: ${transaction['amount']:.2f}")
 
     balance = total_income - total_expenses
 
-    print("Expenses:")
+    print("\nExpenses:")
     for expense in expenses:
         print(expense)
 
 
-    print("Incomes:")
+    print("\nIncomes:")
     for income in incomes:
         print(income)
 

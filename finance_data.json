@@ -12,5 +12,355 @@
         "name": "child support",
         "amount": 306.22,
         "date": "2026-03-12"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "chat gpt",
+        "amount": 22.0,
+        "date": "2026-03-05"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "walmart",
+        "amount": 47.23,
+        "date": "2026-03-01"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "jesters",
+        "amount": 60.0,
+        "date": "2026-03-06"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "shugs bagel",
+        "amount": 31.34,
+        "date": "2026-03-13"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "smoothie king",
+        "amount": 8.25,
+        "date": "2026-03-13"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "rue de la course",
+        "amount": 14.12,
+        "date": "2026-03-13"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "walmart",
+        "amount": 12.24,
+        "date": "2026-03-13"
+    },
+    {
+        "type": "expense",
+        "category": "other",
+        "name": "venmo",
+        "amount": 31.95,
+        "date": "2026-03-14"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "shugs bagels",
+        "amount": 16.77,
+        "date": "2026-03-14"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "rue de la course",
+        "amount": 8.31,
+        "date": "2026-03-14"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "chipotle",
+        "amount": 12.36,
+        "date": "2026-03-14"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "target",
+        "amount": 14.2,
+        "date": "2026-03-15"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "apple",
+        "amount": 7.0,
+        "date": "2026-03-18"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "starbucks",
+        "amount": 5.3,
+        "date": "2026-03-18"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "venmo",
+        "amount": 95.0,
+        "date": "2026-03-19"
+    },
+    {
+        "type": "expense",
+        "category": "entertainment",
+        "name": "airbnb",
+        "amount": 253.53,
+        "date": "2026-03-08"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "venmo",
+        "amount": 141.0,
+        "date": "2026-03-13"
+    },
+    {
+        "type": "expense",
+        "category": "clothing",
+        "name": "amazon",
+        "amount": 21.99,
+        "date": "2026-03-28"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "pizza luna",
+        "amount": 23.1,
+        "date": "2026-03-29"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "jesters",
+        "amount": 240.0,
+        "date": "2026-04-06"
+    },
+    {
+        "type": "expense",
+        "category": "clothing",
+        "name": "running shoes",
+        "amount": 131.99,
+        "date": "2026-04-06"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "visible",
+        "amount": 25.0,
+        "date": "2026-04-08"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "walmart",
+        "amount": 75.75,
+        "date": "2026-04-11"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "child support",
+        "amount": 308.01,
+        "date": "2026-04-14"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "apple",
+        "amount": 3.0,
+        "date": "2026-04-17"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "venmo",
+        "amount": 50.0,
+        "date": "2026-04-20"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "uber eats",
+        "amount": 19.86,
+        "date": "2026-04-20"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "jesters",
+        "amount": 120.0,
+        "date": "2026-04-22"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "uber eats",
+        "amount": 21.61,
+        "date": "2026-04-27"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "venmo",
+        "amount": 65.0,
+        "date": "2026-04-28"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "apple",
+        "amount": 7.98,
+        "date": "2026-04-28"
+    },
+    {
+        "type": "expense",
+        "category": "entertainment",
+        "name": "airbnb",
+        "amount": 393.63,
+        "date": "2026-04-29"
+    },
+    {
+        "type": "expense",
+        "category": "gifts",
+        "name": "pizza duda",
+        "amount": 50.0,
+        "date": "2026-05-01"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "cava",
+        "amount": 11.94,
+        "date": "2026-05-03"
+    },
+    {
+        "type": "expense",
+        "category": "other",
+        "name": "gas",
+        "amount": 47.56,
+        "date": "2026-05-03"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "publix",
+        "amount": 52.7,
+        "date": "2026-05-04"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "chat gpt",
+        "amount": 22.0,
+        "date": "2026-05-05"
+    },
+    {
+        "type": "expense",
+        "category": "clothing",
+        "name": "old navy",
+        "amount": 35.65,
+        "date": "2026-05-07"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "visible",
+        "amount": 25.0,
+        "date": "2026-05-09"
+    },
+    {
+        "type": "expense",
+        "category": "other",
+        "name": "gas",
+        "amount": 41.0,
+        "date": "2026-05-10"
+    },
+    {
+        "type": "expense",
+        "category": "other",
+        "name": "phone case",
+        "amount": 14.03,
+        "date": "2026-05-10"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "target",
+        "amount": 18.35,
+        "date": "2026-05-12"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "child support",
+        "amount": 315.08,
+        "date": "2026-05-13"
+    },
+    {
+        "type": "expense",
+        "category": "clothing",
+        "name": "tj max",
+        "amount": 68.0,
+        "date": "2026-05-13"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "venmo",
+        "amount": 218.0,
+        "date": "2026-05-14"
+    },
+    {
+        "type": "expense",
+        "category": "gifts",
+        "name": "gift dad",
+        "amount": 91.11,
+        "date": "2026-05-14"
+    },
+    {
+        "type": "expense",
+        "category": "gifts",
+        "name": "gift larissa",
+        "amount": 48.48,
+        "date": "2026-05-14"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "breakfast airport",
+        "amount": 24.41,
+        "date": "2026-05-16"
+    },
+    {
+        "type": "income",
+        "category": "",
+        "name": "irs refund",
+        "amount": 1086.0,
+        "date": "2026-03-03"
+    },
+    {
+        "type": "expense",
+        "category": "services",
+        "name": "taxes",
+        "amount": 139.83,
+        "date": "2026-03-04"
     }
 ]

@@ -1,3 +1,53 @@
 type,name,amount,date,category
 expense,visible,25.0,2026-03-09,Subscriptions
 income,child support,306.22,2026-03-12,
+expense,chat gpt,22.0,2026-03-05,subscriptions
+expense,walmart,47.23,2026-03-01,groceries
+income,jesters,60.0,2026-03-06,
+expense,shugs bagel,31.34,2026-03-13,dining out
+expense,smoothie king,8.25,2026-03-13,dining out
+expense,rue de la course,14.12,2026-03-13,dining out
+expense,walmart,12.24,2026-03-13,groceries
+expense,venmo,31.95,2026-03-14,other
+expense,shugs bagels,16.77,2026-03-14,dining out
+expense,rue de la course,8.31,2026-03-14,dining out
+expense,chipotle,12.36,2026-03-14,dining out
+expense,target,14.2,2026-03-15,groceries
+expense,apple,7.0,2026-03-18,subscriptions
+expense,starbucks,5.3,2026-03-18,dining out
+income,venmo,95.0,2026-03-19,
+expense,airbnb,253.53,2026-03-08,entertainment
+income,venmo,141.0,2026-03-13,
+expense,amazon,21.99,2026-03-28,clothing
+expense,pizza luna,23.1,2026-03-29,dining out
+income,jesters,240.0,2026-04-06,
+expense,running shoes,131.99,2026-04-06,clothing
+expense,visible,25.0,2026-04-08,subscriptions
+expense,walmart,75.75,2026-04-11,groceries
+income,child support,308.01,2026-04-14,
+expense,apple,3.0,2026-04-17,subscriptions
+income,venmo,50.0,2026-04-20,
+expense,uber eats,19.86,2026-04-20,dining out
+income,jesters,120.0,2026-04-22,
+expense,uber eats,21.61,2026-04-27,dining out
+income,venmo,65.0,2026-04-28,
+expense,apple,7.98,2026-04-28,subscriptions
+expense,airbnb,393.63,2026-04-29,entertainment
+expense,pizza duda,50.0,2026-05-01,gifts
+expense,cava,11.94,2026-05-03,dining out
+expense,gas,47.56,2026-05-03,other
+expense,publix,52.7,2026-05-04,groceries
+expense,chat gpt,22.0,2026-05-05,subscriptions
+expense,old navy,35.65,2026-05-07,clothing
+expense,visible,25.0,2026-05-09,subscriptions
+expense,gas,41.0,2026-05-10,other
+expense,phone case,14.03,2026-05-10,other
+expense,target,18.35,2026-05-12,groceries
+income,child support,315.08,2026-05-13,
+expense,tj max,68.0,2026-05-13,clothing
+income,venmo,218.0,2026-05-14,
+expense,gift dad,91.11,2026-05-14,gifts
+expense,gift larissa,48.48,2026-05-14,gifts
+expense,breakfast airport,24.41,2026-05-16,dining out
+income,irs refund,1086.0,2026-03-03,
+expense,taxes,139.83,2026-03-04,services
