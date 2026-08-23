@@ -25,7 +25,7 @@ def export_to_csv(transactions):
             writer.writerow(transaction)
 
 def get_number(prompt):
-    """Prompt the user for a number, looping until valif float is entered"""
+    """Prompt the user for a number, looping until valid float is entered"""
     while True:
         value = input(prompt)
         try:

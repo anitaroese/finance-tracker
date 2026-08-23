@@ -16,7 +16,7 @@ stores data in JSON, and exports to CSV for analysis.
 ## Technologies
 
 - Python 3
-- Libraries: `json`, `csv`, `datetime`
+- Libraries: `json`, `csv`, `datetime`, `pandas`, `matplotlib`
 
 ## How to Run
 
@@ -26,7 +26,7 @@ python finance_tracker.py
 
 ## Roadmap
 
-- [ ] Analysis layer using pandas and matplotlib
+- [ ] Analysis layer using pandas and matplotlib (in progress)
 - [ ] Interactive dashboard with Streamlit
 - [ ] Multi-currency support (USD/BRL)
 
