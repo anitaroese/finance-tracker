@@ -26,7 +26,7 @@ python finance_tracker.py
 
 ## Roadmap
 
-- [ ] Analysis layer using pandas and matplotlib (in progress)
+- [x] Analysis layer using pandas and matplotlib (in progress)
 - [ ] Interactive dashboard with Streamlit
 - [ ] Multi-currency support (USD/BRL)
 
