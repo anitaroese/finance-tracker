@@ -33,7 +33,6 @@ def plot_spending_by_category(df):
     return fig
 
 def plot_monthly_trends(df):
-    
 
     df['date'] = pd.to_datetime(df['date'])
     df['month'] = df['date'].dt.month
@@ -43,6 +42,7 @@ def plot_monthly_trends(df):
 
     total_expense_per_month = expenses_monthly.groupby('month')['amount'].sum()
     total_income_per_month = income_monthly.groupby('month')['amount'].sum()
+    total_income_per_month = total_income_per_month.reindex(total_expense_per_month.index, fill_value=0)
 
     month_names = {3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August'}
     months = [month_names[m] for m in total_income_per_month.index]
@@ -61,6 +61,34 @@ def plot_monthly_trends(df):
     ax.set_ylabel('Amount ($)')
     ax.set_title('Monthly Income vs Expenses')
     plt.tight_layout()
+    return fig
+
+def plot_savings_rate(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['month'] = df['date'].dt.month  
+
+    expenses_monthly = df[df['type'] == 'expense']
+    income_monthly = df[df['type'] == 'income']
+    
+    total_expense_per_month = expenses_monthly.groupby('month')['amount'].sum()
+    total_income_per_month = income_monthly.groupby('month')['amount'].sum()
+
+    savings_rate = (total_income_per_month - total_expense_per_month) / total_income_per_month * 100
+    savings_rate = savings_rate.replace([np.inf, -np.inf], np.nan).dropna()
+
+    month_names = {3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August'}
+    months = [month_names[m] for m in savings_rate.index]
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.bar(months, savings_rate.values)
+
+    ax.set_xlabel('Month')
+    ax.set_ylabel('Savings Rate (%)')
+    ax.set_title('Monthly Savings Rate')
+    ax.axhline(y=20, color='orange', linestyle='--', label='Target: 20%')
+    ax.legend()
+    plt.tight_layout()
+
     return fig
 
 
@@ -86,9 +114,10 @@ def main():
     st.header("Monthly Trends")
     st.pyplot(plot_monthly_trends(df))
 
+    st.header("Monthly Savings Rate")
+    st.pyplot(plot_savings_rate(df))
+
     
-
-
 
 if __name__ == "__main__":
     main()
