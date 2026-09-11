@@ -17,6 +17,21 @@ def calculate_summary(df):
     net_balance = total_income - total_expenses
     return total_income, total_expenses, net_balance
 
+def plot_spending_by_category(df):
+
+    expenses = df[df['type'] == 'expense']
+    expenses_grouped = expenses.groupby('category')['amount'].sum().sort_values(ascending=False)
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.bar(expenses_grouped.index, expenses_grouped.values)
+    ax.set_xlabel('Category')
+    ax.set_ylabel('Total Expenses ($)')
+    ax.set_title('Total Expenses by Category')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    return fig
+
+
 def main():
 
     st.title("Finance Tracker Dashboard")
@@ -31,6 +46,9 @@ def main():
     col3.metric("Net Balance", f"${net_balance:,.2f}")
 
     st.dataframe(df)
+
+    st.header("Spending by Category")
+    st.pyplot(plot_spending_by_category(df))
 
     
 
