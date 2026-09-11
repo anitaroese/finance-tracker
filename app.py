@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import json
+import numpy as np
 
 def load_data(file_path):
     # Load JSON file into a DataFrame
@@ -31,6 +32,38 @@ def plot_spending_by_category(df):
     plt.tight_layout()
     return fig
 
+def plot_monthly_trends(df):
+    
+
+    df['date'] = pd.to_datetime(df['date'])
+    df['month'] = df['date'].dt.month
+
+    expenses_monthly = df[df['type'] == 'expense']
+    income_monthly = df[df['type'] == 'income']
+
+    total_expense_per_month = expenses_monthly.groupby('month')['amount'].sum()
+    total_income_per_month = income_monthly.groupby('month')['amount'].sum()
+
+    month_names = {3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August'}
+    months = [month_names[m] for m in total_income_per_month.index]
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    x = np.arange(len(months))  # position for each month
+    width = 0.35  # width of each bar
+
+    ax.bar(x - width/2, total_income_per_month.values, width, label='Income')
+    ax.bar(x + width/2, total_expense_per_month.values, width, label='Expenses')
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(months)
+    ax.legend()
+    ax.set_xlabel('Month')
+    ax.set_ylabel('Amount ($)')
+    ax.set_title('Monthly Income vs Expenses')
+    plt.tight_layout()
+    return fig
+
+
 
 def main():
 
@@ -49,6 +82,9 @@ def main():
 
     st.header("Spending by Category")
     st.pyplot(plot_spending_by_category(df))
+
+    st.header("Monthly Trends")
+    st.pyplot(plot_monthly_trends(df))
 
     
 
