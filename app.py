@@ -106,7 +106,8 @@ def main():
     col2.metric("Total Expenses", f"${total_expenses:,.2f}")
     col3.metric("Net Balance", f"${net_balance:,.2f}")
 
-    st.dataframe(df)
+    with st.expander("View raw transaction data"):
+        st.dataframe(df)
 
     st.header("Spending by Category")
     st.pyplot(plot_spending_by_category(df))
