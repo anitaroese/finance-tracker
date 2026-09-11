@@ -1,8 +1,6 @@
 # Finance Tracker
 
-A command-line personal finance tracker built in Python. 
-Logs income and expenses with timestamps and categories, 
-stores data in JSON, and exports to CSV for analysis.
+An end-to-end personal finance pipeline built in Python. Transactions from March–May were logged manually via a CLI tool to validate the data structure; July–August were imported automatically from Capital One CSV exports and categorized using the Groq API. A Streamlit dashboard provides personal financial analysis across all data.
 
 ## Features
 
@@ -12,6 +10,7 @@ stores data in JSON, and exports to CSV for analysis.
 - Summary view with total income, total expenses, and balance
 - 8 expense categories: groceries, dining out, subscriptions, 
   entertainment, clothing, gifts, services, and other
+- AI-powered Capital One CSV import with automatic transaction categorization (Groq API)
 
 ## Technologies
 
@@ -23,11 +22,13 @@ stores data in JSON, and exports to CSV for analysis.
 ```bash
 python finance_tracker.py
 ```
+## Live Demo
+[View Dashboard](https://anita-roese-finance-tracker.streamlit.app/)
 
 ## Roadmap
 
 - [x] Analysis layer using pandas and matplotlib
-- [ ] Interactive dashboard with Streamlit (in progress)
+- [x] Interactive dashboard with Streamlit
 - [ ] Multi-currency support (USD/BRL)
 
 ## Purpose
