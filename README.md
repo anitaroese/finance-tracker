@@ -10,13 +10,13 @@ stores data in JSON, and exports to CSV for analysis.
 - Persistent storage using JSON
 - Export transaction history to CSV
 - Summary view with total income, total expenses, and balance
-- 7 expense categories: groceries, dining out, subscriptions, 
-  entertainment, clothing, gifts, services
+- 8 expense categories: groceries, dining out, subscriptions, 
+  entertainment, clothing, gifts, services, and other
 
 ## Technologies
 
 - Python 3
-- Libraries: `json`, `csv`, `datetime`, `pandas`, `matplotlib`
+- Libraries: `json`, `csv`, `datetime`, `pandas`, `matplotlib`, `streamlit`, `groq`
 
 ## How to Run
 
@@ -26,8 +26,8 @@ python finance_tracker.py
 
 ## Roadmap
 
-- [x] Analysis layer using pandas and matplotlib (in progress)
-- [ ] Interactive dashboard with Streamlit
+- [x] Analysis layer using pandas and matplotlib
+- [ ] Interactive dashboard with Streamlit (in progress)
 - [ ] Multi-currency support (USD/BRL)
 
 ## Purpose
