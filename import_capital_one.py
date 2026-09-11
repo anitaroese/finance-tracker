@@ -1,27 +1,15 @@
 import pandas as pd
 import json
 from datetime import datetime
-from datetime import datetime
 from dotenv import load_dotenv
 import os
-from openai import OpenAI
 from groq import Groq
 
 load_dotenv()
-api_key = os.getenv("GROQ_API_KEY")
-
-CATEGORY_RULES = {
-    'dining out': ['chipotle', 'starbucks', 'panera', 'shugs', 'chick fil', 'pizza', 'smoothie', 'rue de la course', 'cava', 'uber eats'],
-    'groceries': ['wm supercenter', 'target', 'publix', 'fresh market'],
-    'subscriptions': ['visible', 'apple com bill', 'chatgpt', 'openai', 'uber one', 'amazon prime'],
-    'entertainment': ['airbnb', 'delta air', 'partners on booking'],
-    'clothing': ['old navy', 'tj maxx', 'amazon', 'goodwill'],
-    'gifts': [],
-    'services': ['ussf', 'taxes'],
-    'other': ['shell', 'pilot', 'venmo', 'zelle']
-}
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def load_capital_one_csv(file_path):
+    # Load the Capital One CSV file into a DataFrame
     df_capital_one = pd.read_csv(file_path)
     return df_capital_one
 
@@ -44,16 +32,8 @@ def clean_description(description):
     cleaned_description = ''.join([i for i in cleaned_description if not i.isdigit()]).strip()  # Remove digits
     return cleaned_description
 
-def categorize_transaction(description):
-    description = description.lower()
-    for category, keywords in CATEGORY_RULES.items():
-        if any(keyword in description for keyword in keywords):
-            return category
-    return 'other'
-
 def categorize_with_ai(description):
-    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-    
+    # Use Groq API to categorize the transaction description into one of the predefined categories
     prompt = f"""Classify this bank transaction into exactly one of these categories:
 groceries, dining out, subscriptions, entertainment, clothing, gifts, services, other.
 
@@ -69,6 +49,7 @@ Return only the category name, nothing else."""
     return response.choices[0].message.content.strip().lower()
 
 def review_transactions(df):
+    # Allow the user to review and correct the AI-generated categories
     for index, row in df.iterrows():
         if row['Transaction Type'] != 'Credit':
             print(f"Transaction Description: {row['Transaction Description']}")
@@ -107,24 +88,43 @@ def convert_to_tracker_format(df):
 
     return transactions
 
+def save_to_tracker(transactions):
+    # Save the transactions to finance_data.json
+    try:
+        with open("finance_data.json", "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        data = []
+    data.extend(transactions)
+    with open('finance_data.json', 'w') as f:
+        json.dump(data, f, indent=4)
+
+
 def main():
+
     file_path = 'C:\\Users\\anita\\OneDrive\\Documentos\\Projects\\finance-tracker\\capital_one_script.csv'
+
+    # Load and process the Capital One CSV file
     df_capital_one = load_capital_one_csv(file_path)
+
+    # Filter transactions to exclude transfers bewteen accounts and interest payments
     filtered_df = filter_capital_one_transactions(df_capital_one)
+
+    # Convert the 'Transaction Date' column to the desired format
     converted_dates = filtered_df['Transaction Date'].apply(convert_date_format)
     filtered_df['Transaction Date'] = converted_dates
 
-    cleaned_descriptions = filtered_df['Transaction Description'].apply(clean_description)
-    filtered_df['Transaction Description'] = cleaned_descriptions 
-
-    categorized_transactions = filtered_df['Transaction Description'].apply(categorize_transaction)
-    filtered_df['Category'] = categorized_transactions
-
+    # Categorize transactions using AI
     filtered_df['Category'] = filtered_df['Transaction Description'].apply(categorize_with_ai)
 
-    print(filtered_df)
+    # Clean the transaction descriptions to remove unnecessary text and numbers
+    cleaned_descriptions = filtered_df['Transaction Description'].apply(clean_description)
+    filtered_df['Transaction Description'] = cleaned_descriptions
 
-    review_transactions(filtered_df)
+    reviewed_df = review_transactions(filtered_df)
+
+    # Convert the DataFrame to the desired format for finance-tracker and save it to the tracker
+    save_to_tracker(convert_to_tracker_format(reviewed_df))
 
 
 if __name__ == "__main__":

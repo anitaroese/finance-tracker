@@ -1,7 +1,7 @@
 [
     {
         "type": "expense",
-        "category": "Subscriptions",
+        "category": "subscriptions",
         "name": "visible",
         "amount": 25.0,
         "date": "2026-03-09"
@@ -362,5 +362,229 @@
         "name": "taxes",
         "amount": 139.83,
         "date": "2026-03-04"
+    },
+    {
+        "type": "expense",
+        "category": "gifts",
+        "name": "Zelle money sent to Eduarda Queiroz",
+        "amount": 38.0,
+        "date": "2026-08-29"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "APPLE COM BILL    CA",
+        "amount": 22.99,
+        "date": "2026-08-28"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "AMAZON COM ORC AMZN COM BIL WA",
+        "amount": 100.61,
+        "date": "2026-08-28"
+    },
+    {
+        "type": "expense",
+        "category": "other",
+        "name": "PILOT  MERIDIAN MS",
+        "amount": 5.96,
+        "date": "2026-08-27"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "CHIPOTLE  VESTAVIA AL",
+        "amount": 10.45,
+        "date": "2026-08-26"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "TARGET T  BIRMINGHAM AL",
+        "amount": 8.94,
+        "date": "2026-08-25"
+    },
+    {
+        "type": "expense",
+        "category": "services",
+        "name": "USSF LEARNING CENTER  IL",
+        "amount": 24.0,
+        "date": "2026-08-17"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "APPLE COM BILL    CA",
+        "amount": 2.99,
+        "date": "2026-08-17"
+    },
+    {
+        "type": "income",
+        "category": "other",
+        "name": "Deposit from VENMO CASHOUT",
+        "amount": 16.0,
+        "date": "2026-08-17"
+    },
+    {
+        "type": "expense",
+        "category": "other",
+        "name": "VENMO ASHLEY BURNETT    NY",
+        "amount": 80.0,
+        "date": "2026-08-16"
+    },
+    {
+        "type": "expense",
+        "category": "entertainment",
+        "name": "Zelle money sent to JULIA NASCIMENTO",
+        "amount": 6.6,
+        "date": "2026-08-16"
+    },
+    {
+        "type": "expense",
+        "category": "clothing",
+        "name": "GOODWILL  TULANE NEW ORLEANS LA",
+        "amount": 5.49,
+        "date": "2026-08-15"
+    },
+    {
+        "type": "expense",
+        "category": "entertainment",
+        "name": "DELTA AIR LINES  CA",
+        "amount": 234.8,
+        "date": "2026-08-13"
+    },
+    {
+        "type": "expense",
+        "category": "entertainment",
+        "name": "VENMO AVERY MCDOUGAL    NY",
+        "amount": 57.0,
+        "date": "2026-08-11"
+    },
+    {
+        "type": "expense",
+        "category": "other",
+        "name": "AMAZON MKTPL HCF AMZN COM BIL WA",
+        "amount": 21.87,
+        "date": "2026-08-11"
+    },
+    {
+        "type": "expense",
+        "category": "services",
+        "name": "VISIBLE    CO",
+        "amount": 25.0,
+        "date": "2026-08-08"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "TST SHUGS BAGELS LOU NEW ORLEANS LA",
+        "amount": 2.2,
+        "date": "2026-08-06"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "CHICK FIL A  NEW ORLEANS LA",
+        "amount": 9.18,
+        "date": "2026-08-05"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "CHIPOTLE  METAIRIE LA",
+        "amount": 10.92,
+        "date": "2026-08-04"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "PANERA BREAD  K NEW ORLEANS LA",
+        "amount": 11.21,
+        "date": "2026-08-03"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "STARBUCKS STORE  HOPE HULL AL",
+        "amount": 10.72,
+        "date": "2026-08-03"
+    },
+    {
+        "type": "expense",
+        "category": "services",
+        "name": "SHELL AUBURN AL",
+        "amount": 29.61,
+        "date": "2026-08-03"
+    },
+    {
+        "type": "income",
+        "category": "other",
+        "name": "Deposit from VENMO CASHOUT",
+        "amount": 236.0,
+        "date": "2026-08-03"
+    },
+    {
+        "type": "expense",
+        "category": "dining out",
+        "name": "CHIPOTLE  METAIRIE LA",
+        "amount": 10.92,
+        "date": "2026-08-02"
+    },
+    {
+        "type": "expense",
+        "category": "groceries",
+        "name": "WM SUPERCENTER # NEW ORLEANS, LA US",
+        "amount": 107.45,
+        "date": "2026-08-02"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "APPLE COM BILL    CA",
+        "amount": 22.99,
+        "date": "2026-07-28"
+    },
+    {
+        "type": "income",
+        "category": "other",
+        "name": "Deposit from BTG Pactual BTG Pactua Julia Trevisan",
+        "amount": 1690.0,
+        "date": "2026-07-22"
+    },
+    {
+        "type": "expense",
+        "category": "other",
+        "name": "Withdrawal from TRANSACT CAMPUS XULA",
+        "amount": 1830.5,
+        "date": "2026-07-21"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "UBER ONE MEMBERSHIP    CA",
+        "amount": 4.99,
+        "date": "2026-07-17"
+    },
+    {
+        "type": "expense",
+        "category": "subscriptions",
+        "name": "APPLE COM BILL    CA",
+        "amount": 2.99,
+        "date": "2026-07-17"
+    },
+    {
+        "type": "income",
+        "category": "clothing",
+        "name": "adidas Offer Credit for order on //",
+        "amount": 0.01,
+        "date": "2026-07-09"
+    },
+    {
+        "type": "expense",
+        "category": "services",
+        "name": "VISIBLE    CO",
+        "amount": 25.0,
+        "date": "2026-07-08"
     }
 ]
